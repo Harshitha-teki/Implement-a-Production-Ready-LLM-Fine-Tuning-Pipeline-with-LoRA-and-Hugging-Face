@@ -1,0 +1,7 @@
+results/
+models/
+*.safetensors
+*.bin
+*.pth
+__pycache__/
+.ipynb_checkpoints/
