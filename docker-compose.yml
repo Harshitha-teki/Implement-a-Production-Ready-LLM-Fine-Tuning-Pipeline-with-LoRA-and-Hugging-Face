@@ -1,0 +1,8 @@
+services:
+  llm-pipeline:
+    build: .
+    env_file: .env
+    volumes:
+      - ./models:/app/models
+    ports:
+      - "8000:8000"
