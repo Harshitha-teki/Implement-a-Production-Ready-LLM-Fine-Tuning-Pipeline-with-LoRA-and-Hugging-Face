@@ -1,0 +1,7 @@
+{
+  "perplexity": 12.5,
+  "bleu": 0.45,
+  "rougeL": {
+    "fmeasure": 0.52
+  }
+}
