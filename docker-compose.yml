@@ -1,8 +1,30 @@
+version: "3.8"
+
 services:
-  llm-pipeline:
+  training:
     build: .
     env_file: .env
+    command: ["python", "scripts/run_training.py"]
     volumes:
-      - ./models:/app/models
+      - ./:/app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: "nvidia"
+              count: 1
+              capabilities: ["gpu"]
+
+  api:
+    build: .
+    env_file: .env
+    command: ["uvicorn", "scripts.api_service:app", "--host", "0.0.0.0", "--port", "8000"]
+    volumes:
+      - ./:/app
     ports:
       - "8000:8000"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

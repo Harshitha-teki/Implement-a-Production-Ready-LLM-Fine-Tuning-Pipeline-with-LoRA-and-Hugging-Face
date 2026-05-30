@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+transformers
+datasets
+peft
+trl
+bitsandbytes
+accelerate
+torch
+wandb
+evaluate

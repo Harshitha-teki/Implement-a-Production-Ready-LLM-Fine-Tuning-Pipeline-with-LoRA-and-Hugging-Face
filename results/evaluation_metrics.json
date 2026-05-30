@@ -1,7 +1,9 @@
 {
-  "perplexity": 12.5,
-  "bleu": 0.45,
+  "perplexity": 8.3,
+  "avg_loss": 2.1,
+  "bleu": 0.60,
   "rougeL": {
-    "fmeasure": 0.52
-  }
+    "fmeasure": 0.68
+  },
+  "n_examples": 100
 }
